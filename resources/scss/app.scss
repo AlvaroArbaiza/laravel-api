@@ -1,0 +1,14 @@
+@use './partials/_mixin.scss' as *;
+@import '~bootstrap/scss/bootstrap';
+@import './partials/_header.scss';
+@import './partials/_footer.scss';
+@import './pages/_guest.scss';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
