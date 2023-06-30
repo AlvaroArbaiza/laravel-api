@@ -59,6 +59,16 @@
                                 @endif
                             </h6>
 
+                            {{-- types --}}
+                            <h6 class="card-subtitle mb-2">
+                                <span class="text-body-secondary text-uppercase">Linguaggio usato: </span>
+                                @if($element->type)
+                                    <span class="badge rounded-pill text-bg-warning">
+                                        {{ $element->type->name }}
+                                    </span>
+                                @endif
+                            </h6>
+
                             {{-- cliente --}}
                             <h6 class="card-subtitle mb-2">
                                 <span class="text-body-secondary">Cliente: </span>

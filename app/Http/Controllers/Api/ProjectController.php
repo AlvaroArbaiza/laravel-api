@@ -8,10 +8,18 @@ use App\Models\Admin\Project;
 
 class ProjectController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
 
-        // $projects = Project::with( 'type', 'technology')->get();
-        $projects = Project::with( 'type', 'technology')->paginate(4);
+        if($request->has('type_id')) {
+
+            $projects = Project::with( 'type', 'technology')->where('type_id', $request->type_id)->paginate(4);
+
+        } else {
+
+            // $projects = Project::with( 'type', 'technology')->get();
+            $projects = Project::with( 'type', 'technology')->paginate(4);
+        }
+
         
         return response()->json([
             'success' => true,
@@ -34,7 +42,7 @@ class ProjectController extends Controller
             return response()->json([
                 'success' => false,
                 'error' => "Non c'è nessun elemento"
-            ]);
+            ])->setStatusCode(404);
         }
     }
 }
